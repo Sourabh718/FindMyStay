@@ -1,0 +1,46 @@
+<%- include('../partials/head') %>
+  </head>
+  <body>
+      <%- include('../partials/nav') %>
+      <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-6xl">
+          <h2 class="text-3xl text-red-500 font-bold text-center mb-6">
+             Home Details <%= home.name %>
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="rounded-lg overflow-hidden">
+                  <img src="<%= home.photoUrl %>" alt="<%= home.name %>" class="w-full h-86 object-cover">
+              </div>
+              
+              <div class="space-y-6">
+                  <div class="border-b pb-4">
+                      <h3 class="text-2xl font-semibold mb-2">Description</h3>
+                      <p class="text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque provident adipisci delectus, officia illo numquam vitae vel obcaecati maiores consequuntur maxime nesciunt, sint aliquam ad est explicabo eos nisi. Minus esse nemo sequi dolore eligendi nam molestias Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum vitae, provident eius dolorem velit eos obcaecati quae itaque minima quod assumenda sint doloremque cupiditate ullam repellendus libero ipsa ad quia ea dicta harum dolore non! Esse aut est adipisci impedit! quibusdam iste praesentium quam. Porro, ea. Inventore iure libero animi officiis doloribus molestias facilis harum, facere consequuntur similique tenetur eveniet sapiente voluptate qui non recusandae neque ex earum quasi est alias doloremque amet natus. Sequi enim tempore laudantium deleniti aliquid at odio, reiciendis quisquam in dolore doloribus minus modi explicabo amet! Sed nisi eaque nesciunt libero dolorem enim, quae repudiandae alias quaerat. Ipsa.</p>
+                  </div>
+
+                  <div class="border-b pb-4">
+                      <h3 class="text-2xl font-semibold mb-2">Location</h3>
+                      <p class="text-gray-600"><%= home.location %></p>
+                  </div>
+                  
+                  <div class="border-b pb-4">
+                      <h3 class="text-2xl font-semibold mb-2">Price</h3>
+                      <p class="text-green-600 text-xl font-bold">Rs<%= home.price %> / Month</p>
+                  </div>
+                  
+                  <div class="border-b pb-4">
+                      <h3 class="text-2xl font-semibold mb-2">Rating</h3>
+                      <div class="flex items-center">
+                          <span class="text-yellow-400 text-xl">★</span>
+                          <span class="ml-2 text-lg"><%= home.rating %> / 5</span>
+                      </div>
+                  </div>
+                  <form action="/watchlist" method="POST">
+              <button class="bg-green-300 p-2">Add to Favourite</button>
+              <input type="hidden" value="<%= home._id %>" name="favouriteId">
+              </form>
+              </div>
+          </div>
+      </main>
+  </body>
+</html>
